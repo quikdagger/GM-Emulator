@@ -6,6 +6,7 @@ import {
   npcMotivationVerbTable,
   npcMotivationNounTable,
   npcMoodTable,
+  npcBearingTable,
 } from './npcData'; 
 
 function NPCEmulator() {
@@ -65,6 +66,23 @@ function NPCEmulator() {
   
       return mood;
     };
+
+    function rollDemeanor() {
+      const roll = Math.floor(Math.random() * 100) + 1;
+      const demeanor = npcBearingTable.demeanors.find(
+        (entry) => roll >= entry.range[0] && roll <= entry.range[1]
+      );
+      return demeanor.demeanor;
+    }
+  
+    function rollBearing(demeanor) {
+      const roll = Math.floor(Math.random() * 100) + 1;
+      const bearingData = npcBearingTable.bearings[demeanor];
+      const bearing = bearingData.find(
+        (entry) => roll >= entry.range[0] && roll <= entry.range[1]
+      );
+      return bearing.description;
+    }
   
     const generateNPC = () => {
       const modifierRoll = Math.floor(Math.random() * 100) + 1;
