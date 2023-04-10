@@ -221,9 +221,10 @@ function NPCList({ NPCs, setNPCs }) {
   const [newNPC, setNewNPC] = useState("")
 
   const handleAddNPC = () => {
-    setNPCs([...NPCs, newNPC])
-    setNPCs("")
-  }
+    setNPCs([...NPCs, newNPC]);
+    setNewNPC(""); 
+  };
+  
 
   return (
     <div>
