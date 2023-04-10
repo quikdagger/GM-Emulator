@@ -7,6 +7,7 @@ import {
   npcMotivationNounTable,
   npcMoodTable,
   npcBearingTable,
+  npcFocusTable,
 } from './npcData'; 
 
 function NPCEmulator() {
@@ -16,6 +17,8 @@ function NPCEmulator() {
     const [npcMotivations, setNpcMotivations] = useState([]);
     const [npcMood, setNpcMood] = useState('');
     const [npcRelationship, setNpcRelationship] = useState('');
+    const [npcDiscussion, setNpcDiscussion] = useState("");
+
   
     const calculateNPCPowerLevel = (rLevel, d100Roll) => {
       const rLevelData = npcPowerLevelTable.find((entry) => entry.rLevel === rLevel);
@@ -83,11 +86,20 @@ function NPCEmulator() {
       );
       return bearing.description;
     }
+
+    function rollNPCFocus() {
+      const roll = Math.floor(Math.random() * 100) + 1;
+      const focus = npcFocusTable.find(
+        (entry) => roll >= entry.range[0] && roll <= entry.range[1]
+      );
+      return focus.description;
+    }
   
     const generateNPC = () => {
       const modifierRoll = Math.floor(Math.random() * 100) + 1;
       const nounRoll = Math.floor(Math.random() * 100) + 1;
       const powerLevelRoll = Math.floor(Math.random() * 100) + 1;
+      
   
       const modifier = npcModifierTable.find((entry) => entry.value === modifierRoll)
         .modifier;

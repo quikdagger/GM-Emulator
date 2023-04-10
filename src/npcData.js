@@ -659,5 +659,42 @@ const npcNounTable = [
             ],
           },
         };
+
+        const npcFocusTable = [  
+          { range: [1, 3], description: "current scene" },
+          { range: [4, 6], description: "last story" },
+          { range: [7, 9], description: "equipment" },
+          { range: [10, 12], description: "parents" },
+          { range: [13, 15], description: "history" },
+          { range: [16, 18], description: "retainers" },
+          { range: [19, 21], description: "wealth" },
+          { range: [22, 24], description: "relics" },
+          { range: [25, 27], description: "last action" },
+          { range: [28, 30], description: "skills" },
+          { range: [31, 33], description: "superiors" },
+          { range: [34, 36], description: "fame" },
+          { range: [37, 39], description: "campaign" },
+          { range: [40, 42], description: "future action" },
+          { range: [43, 45], description: "friends" },
+          { range: [46, 48], description: "allies" },
+          { range: [49, 51], description: "last scene" },
+          { range: [52, 54], description: "contacts" },
+          { range: [55, 57], description: "flaws" },
+          { range: [58, 60], description: "antagonist" },
+          { range: [61, 63], description: "rewards" },
+          { range: [64, 66], description: "experience" },
+          { range: [67, 69], description: "knowledge" },
+          { range: [70, 72], description: "recent scene" },
+          { range: [73, 75], description: "community" },
+          { range: [76, 78], description: "treasure" },
+          { range: [79, 81], description: "the character" },
+          { range: [82, 84], description: "current story" },
+          { range: [85, 87], description: "family" },
+          { range: [88, 90], description: "power" },
+          { range: [91, 93], description: "weapons" },
+          { range: [94, 96], description: "previous scene" },
+          { range: [97, 100], description: "enemy" },
+        ];
+
         
-      export { npcModifierTable, npcNounTable, npcPowerLevelTable, npcMotivationVerbTable, npcMotivationNounTable, npcMoodTable, npcBearingTable };
+      export { npcModifierTable, npcNounTable, npcPowerLevelTable, npcMotivationVerbTable, npcMotivationNounTable, npcMoodTable, npcBearingTable, npcFocusTable };
