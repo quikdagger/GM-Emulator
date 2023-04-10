@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  background-color: #3a3a3a;
+  color: #f4f4f4;
+}
+
+.App {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+h2 {
+  margin: 0.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.5rem;
+  border: 1px solid #f4f4f4;
+  text-align: center;
+}
+
+textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.5rem;
+  background-color: #f4f4f4;
+  color: #3a3a3a;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+button {
+  background-color: #8b4513;
+  color: #f4f4f4;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #a0522d;
+}
+
+.eventMeaning-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.eventMeaning-column {
+  flex: 1;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: black;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.multi-column-table {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  grid-auto-rows: minmax(20px, auto);
+  gap: 1rem;
+}
+
+.multi-column-table tbody {
+  display: inline-block;
+  width: auto;
+  margin-right: 1px;
+}
+
+.multi-column-table tr {
+  display: contents;
+}
+
+.close-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.oracle-check-container {
+  margin-top: 20px;
+}
+
+.oracle-probabilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.oracle-probabilities button {
+  background-color: #8b4513;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px 10px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-weight: bold;
+}
+
+.oracle-probabilities button:hover {
+  background-color: #0056b3;
+}
+
+.oracle-result {
+  font-size: 18px;
+}
