@@ -550,4 +550,4 @@ const npcNounTable = [
         ];          
       
 
-      export { npcModifierTable, npcNounTable, npcPowerLevelTable, npcMotivationVerbTable, npcMotivationNounTable };
+      export { npcModifierTable, npcNounTable, npcPowerLevelTable, npcMotivationVerbTable, npcMotivationNounTable, npcMoodTable };

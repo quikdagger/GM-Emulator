@@ -5,6 +5,7 @@ import {
   npcPowerLevelTable,
   npcMotivationVerbTable,
   npcMotivationNounTable,
+  npcMoodTable,
 } from './npcData'; 
 
 function NPCEmulator() {
@@ -12,6 +13,8 @@ function NPCEmulator() {
     const [npcPowerLevel, setNpcPowerLevel] = useState('');
     const [rLevel, setRLevel] = useState('Order');
     const [npcMotivations, setNpcMotivations] = useState([]);
+    const [npcMood, setNpcMood] = useState('');
+    const [npcRelationship, setNpcRelationship] = useState('');
   
     const calculateNPCPowerLevel = (rLevel, d100Roll) => {
       const rLevelData = npcPowerLevelTable.find((entry) => entry.rLevel === rLevel);
@@ -49,6 +52,19 @@ function NPCEmulator() {
         )
       );
     };
+
+    const generateMood = (relationship) => {
+      const d100Roll = Math.floor(Math.random() * 100) + 1;
+      const relationshipData = npcMoodTable.find(
+        (entry) => entry.npcRelationship === relationship
+      );
+  
+      const mood = relationshipData.ranges.find(
+        (entry) => entry.range[0] <= d100Roll && entry.range[1] >= d100Roll
+      ).description;
+  
+      return mood;
+    };
   
     const generateNPC = () => {
       const modifierRoll = Math.floor(Math.random() * 100) + 1;
@@ -65,6 +81,16 @@ function NPCEmulator() {
       setNPCDescription(npcDescription);
       setNpcPowerLevel(powerLevel);
       generateMotivation();
+
+      if (npcRelationship) {
+        const mood = generateMood(npcRelationship);
+        setNpcMood(mood);
+      }
+    };
+  
+    const handleRelationshipChange = (event) => {
+      setNpcRelationship(event.target.value);
+    
     };
   
     return (
@@ -95,8 +121,25 @@ function NPCEmulator() {
             </ul>
           </div>
         )}
+        <div>
+          <label htmlFor="npc-relationship">NPC Relationship: </label>
+          <select
+            id="npc-relationship"
+            value={npcRelationship}
+            onChange={handleRelationshipChange}
+          >
+            <option value="">Select Relationship</option>
+            {npcMoodTable.map((entry) => (
+              <option key={entry.npcRelationship} value={entry.npcRelationship}>
+                {entry.npcRelationship}
+              </option>
+            ))}
+          </select>
+        </div>
+        {npcMood && <p>NPC Mood: {npcMood}</p>}
       </div>
     );
+    
   }
   
   export default NPCEmulator;
