@@ -17,7 +17,7 @@ function NPCEmulator() {
     const [npcMotivations, setNpcMotivations] = useState([]);
     const [npcMood, setNpcMood] = useState('');
     const [npcRelationship, setNpcRelationship] = useState('');
-    const [npcDiscussion, setNpcDiscussion] = useState("");
+    // const [npcDiscussion, setNpcDiscussion] = useState(""); unused currently
     const [npcFocus, setNpcFocus] = useState('');
     const [npcDemeanor, setNpcDemeanor] = useState('');
     const [npcBearing, setNpcBearing] = useState('');

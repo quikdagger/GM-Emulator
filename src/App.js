@@ -131,7 +131,18 @@ function ChaosFactor({ chaosFactor, setChaosFactor }) {
   return (
     <div>
       <h2>Chaos Factor</h2>
-      <input type='number' value={chaosFactor} onChange={(e) => setChaosFactor(parseInt(e.target.value, 10))} />
+      <label htmlFor="chaos-factor">Current Chaos Factor</label>
+      <select
+        id="chaos-factor"
+        value={chaosFactor}
+        onChange={(e) => setChaosFactor(e.target.value)}>
+      {[...Array(10)].map((_, index) => (
+      <option key={index + 1} value={index + 1}>
+      {index + 1}
+    </option>
+  ))}
+</select>
+
     </div>
   )
 }
