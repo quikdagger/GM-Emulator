@@ -4,7 +4,7 @@ Right now some things that are working are the Event Meaning tables and the newe
 
 I have implemented the Universal NPC Emulator (UNE) also but it is merely rollable at this time and cannot be seen until I figure out showing the tables in a useful way.
 
-Add NPCs does not work as of yet. Looks like an easy fix and oversight that I will get around to.
+Add NPCs does not work as of yet. Looks like an easy fix and oversight that I will get around to. [Fixed]
 
 Threads can be added but not removed but there is a temporary checkbox for if they are completed. I intend to add a function when rolling for the Event Focus that it will use the threads and NPCs in the list to roll against for which thread/NPC the event pertains to.
 
