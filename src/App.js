@@ -236,7 +236,6 @@ function NPCList({ NPCs, setNPCs }) {
     setNewNPC(""); 
   };
   
-
   return (
     <div>
       <h2>NPCs</h2>
@@ -254,7 +253,6 @@ function NPCList({ NPCs, setNPCs }) {
     </div>
   )
 }
-
 
 function EventFocusTable({ data }) {
   return (
@@ -279,7 +277,6 @@ function EventFocusTable({ data }) {
     </div>
   )
 }
-
 
 function EventMeaningTable({ data }) {
   const [rolledAction, setRolledAction] = useState(null);
@@ -456,8 +453,6 @@ function EventMeaningElements({ data }) {
     </div>
   );
 }
-
-
 
 function FantasyNameGenerator({ fetchGeneratedNames, generatedNames }) {
   return (
