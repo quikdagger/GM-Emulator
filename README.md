@@ -10,4 +10,4 @@ Threads can be added but not removed but there is a temporary checkbox for if th
 
 Fantasy Name Generator is also not working any longer. I have removed most of the code and will attempt to set something up later for it.
 
-The oracle works but does not yet take into account the Chaos Factor as it is always set at 5 for now. I will be changing this based on what I learned trying to implement the r-Level from UNE.
+The oracle works but does not yet take into account the Chaos Factor as it is always set at 5 for now. I will be changing this based on what I learned trying to implement the r-Level from UNE. [Complete]
