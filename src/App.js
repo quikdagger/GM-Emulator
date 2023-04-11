@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import { MythicGMEmulatorData } from './MythicGMEmulatorData.js'
 import MIDIPlayerComponent from './MIDIPlayer'
@@ -13,6 +13,22 @@ function App() {
   const [threads, setThreads] =useState([])
   const [NPCs, setNPCs] = useState([])
   const [generatedNames, setGeneratedNames] = useState([])
+
+  useEffect(() => {
+    const savedChaosFactor = localStorage.getItem("chaosFactor");
+    const savedThreads = localStorage.getItem("threads");
+    const savedNPCs = localStorage.getItem("NPCs");
+
+    if (savedChaosFactor) setChaosFactor(JSON.parse(savedChaosFactor));
+    if (savedThreads) setThreads(JSON.parse(savedThreads));
+    if (savedNPCs) setNPCs(JSON.parse(savedNPCs));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("chaosFactor", JSON.stringify(chaosFactor));
+    localStorage.setItem("threads", JSON.stringify(threads));
+    localStorage.setItem("NPCs", JSON.stringify(NPCs));
+  }, [chaosFactor, threads, NPCs]);
 
   const generateEventFocus = () => {
     const randomNumber = Math.floor(Math.random() * 100) +1
