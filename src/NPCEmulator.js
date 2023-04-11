@@ -19,7 +19,8 @@ function NPCEmulator() {
     const [npcRelationship, setNpcRelationship] = useState('');
     const [npcDiscussion, setNpcDiscussion] = useState("");
     const [npcFocus, setNpcFocus] = useState('');
-
+    const [npcDemeanor, setNpcDemeanor] = useState('');
+    const [npcBearing, setNpcBearing] = useState('');
 
     const rollD100 = (table) => {
       const roll = Math.floor(Math.random() * 100) + 1;
@@ -32,7 +33,6 @@ function NPCEmulator() {
       return focus.description;
     };
 
-  
     const calculateNPCPowerLevel = (rLevel, d100Roll) => {
       const rLevelData = npcPowerLevelTable.find((entry) => entry.rLevel === rLevel);
   
@@ -105,26 +105,31 @@ function NPCEmulator() {
       const nounRoll = Math.floor(Math.random() * 100) + 1;
       const powerLevelRoll = Math.floor(Math.random() * 100) + 1;
       
-  
       const modifier = npcModifierTable.find((entry) => entry.value === modifierRoll)
         .modifier;
       const noun = npcNounTable.find((entry) => entry.value === nounRoll).noun;
       const powerLevel = calculateNPCPowerLevel(rLevel, powerLevelRoll);
-  
+    
       const npcDescription = `${modifier} ${noun}`;
-
+    
       const npcFocus = rollNPCFocus();
-  
+    
+      const rolledDemeanor = rollDemeanor();
+      const npcBearing = rollBearing(rolledDemeanor);
+    
       setNPCDescription(npcDescription);
       setNpcPowerLevel(powerLevel);
       generateMotivation();
       setNpcFocus(npcFocus);
-
+      setNpcDemeanor(rolledDemeanor);
+      setNpcBearing(npcBearing);
+    
       if (npcRelationship) {
         const mood = generateMood(npcRelationship);
         setNpcMood(mood);
       }
     };
+    
   
     const handleRelationshipChange = (event) => {
       setNpcRelationship(event.target.value);
@@ -138,8 +143,7 @@ function NPCEmulator() {
         <select
           id="r-level"
           value={rLevel}
-          onChange={(e) => setRLevel(e.target.value)}
-        >
+          onChange={(e) => setRLevel(e.target.value)}>
           {npcPowerLevelTable.map((entry) => (
             <option key={entry.rLevel} value={entry.rLevel}>
               {entry.rLevel} ({entry.value})
@@ -176,6 +180,8 @@ function NPCEmulator() {
         </div>
         {npcMood && <p>NPC Mood: {npcMood}</p>}
         {npcFocus && <p>NPC Focus: {npcFocus}</p>}
+        {npcDemeanor && <p>NPC Demeanor: {npcDemeanor}</p>}
+        {npcBearing && <p>NPC Bearing: {npcBearing}</p>}
       </div>
     );
     
