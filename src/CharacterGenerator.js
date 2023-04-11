@@ -20,7 +20,7 @@ const generateClass = () => {
   const generateAbilities = () => {
     // ...
     const abilities = [];
-    // Ensure an array is returned
+
     return abilities || [];
   };
 
@@ -52,11 +52,9 @@ const generateBackground = () => {
 
 
   const generateEquipment = (characterClass) => {
-    // Add equipment generation logic based on the character class
-    // You can create an object mapping classes to their starting equipment
+ 
     const equipmentByClass = {
-      // Example:
-      // 'Fighter': ['Chain mail', 'Longsword', 'Shield', 'Light crossbow', '20 bolts']
+
     };
   
     return equipmentByClass[characterClass] || [];

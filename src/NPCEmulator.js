@@ -18,6 +18,19 @@ function NPCEmulator() {
     const [npcMood, setNpcMood] = useState('');
     const [npcRelationship, setNpcRelationship] = useState('');
     const [npcDiscussion, setNpcDiscussion] = useState("");
+    const [npcFocus, setNpcFocus] = useState('');
+
+
+    const rollD100 = (table) => {
+      const roll = Math.floor(Math.random() * 100) + 1;
+      const result = table.find((entry) => roll >= entry.range[0] && roll <= entry.range[1]);
+      return result;
+    };
+  
+    const rollNPCFocus = () => {
+      const focus = rollD100(npcFocusTable);
+      return focus.description;
+    };
 
   
     const calculateNPCPowerLevel = (rLevel, d100Roll) => {
@@ -86,14 +99,6 @@ function NPCEmulator() {
       );
       return bearing.description;
     }
-
-    function rollNPCFocus() {
-      const roll = Math.floor(Math.random() * 100) + 1;
-      const focus = npcFocusTable.find(
-        (entry) => roll >= entry.range[0] && roll <= entry.range[1]
-      );
-      return focus.description;
-    }
   
     const generateNPC = () => {
       const modifierRoll = Math.floor(Math.random() * 100) + 1;
@@ -107,10 +112,13 @@ function NPCEmulator() {
       const powerLevel = calculateNPCPowerLevel(rLevel, powerLevelRoll);
   
       const npcDescription = `${modifier} ${noun}`;
+
+      const npcFocus = rollNPCFocus();
   
       setNPCDescription(npcDescription);
       setNpcPowerLevel(powerLevel);
       generateMotivation();
+      setNpcFocus(npcFocus);
 
       if (npcRelationship) {
         const mood = generateMood(npcRelationship);
@@ -167,6 +175,7 @@ function NPCEmulator() {
           </select>
         </div>
         {npcMood && <p>NPC Mood: {npcMood}</p>}
+        {npcFocus && <p>NPC Focus: {npcFocus}</p>}
       </div>
     );
     
