@@ -5,8 +5,8 @@
 body {
   margin: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  background-color: #3a3a3a;
-  color: #f4f4f4;
+  background-color: #f4eedb;
+  color: #3a3a3a;
 }
 
 .App {
@@ -17,12 +17,18 @@ body {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers-1.png");
+  background-color: #f4eedb;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
 }
 
 h2 {
   margin: 0.5rem;
   font-weight: bold;
   font-size: 1.5rem;
+  font-family: "IM Fell DW Pica", "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
 table {
@@ -48,15 +54,18 @@ textarea {
 button {
   background-color: #8b4513;
   color: #f4f4f4;
-  padding: 0.5rem 1rem;
-  border: none;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  font-size: 14px;
   cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-weight: bold;
 }
 
 button:hover {
-  background-color: #a0522d;
+  background-color: #f0f0f0;
+  border-color: #999;
 }
 
 .eventMeaning-container {
