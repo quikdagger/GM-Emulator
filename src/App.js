@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 import { MythicGMEmulatorData } from './MythicGMEmulatorData.js'
+import NameGenerator from './nameGenerator';
 import MIDIPlayerComponent from './MIDIPlayer'
 import MIDIPlayer from './MIDIPlayer'
 import NPCEmulator from './NPCEmulator'
@@ -12,7 +13,7 @@ function App() {
   const [gameLog, setGameLog] = useState([])
   const [threads, setThreads] =useState([])
   const [NPCs, setNPCs] = useState([])
-  const [generatedNames, setGeneratedNames] = useState([])
+  // const [generatedNames, setGeneratedNames] = useState([])
 
   useEffect(() => {
     const savedChaosFactor = localStorage.getItem("chaosFactor");
@@ -71,7 +72,7 @@ function App() {
     setGameLog([...gameLog, { playerAction, gameResponse }])
   }
 
-  const fetchGeneratedNames = async () => {
+  /* const fetchGeneratedNames = async () => {
     try {
       const response = await fetch("http://localhost:3001/generate-fantasy-name");
       const data = await response.json();
@@ -79,7 +80,7 @@ function App() {
     } catch (error) {
       console.error(error);
     }
-  };
+  }; */
 
   const oracleCheck = (probabilityIndex) => {
     const odds = MythicGMEmulatorData.oracleProbabilityTable[probabilityIndex].odds;
@@ -111,7 +112,7 @@ function App() {
       <Threads threads={threads} setThreads={setThreads} />
       <NPCList NPCs={NPCs} setNPCs={setNPCs} />
       <NPCEmulator />
-      <FantasyNameGenerator fetchGeneratedNames={fetchGeneratedNames} generatedNames={generatedNames} />
+      <NameGenerator />
       <div className="oracle-check-container">
         <h2>Oracle Check</h2>
         <div className="oracle-probabilities">
@@ -470,7 +471,7 @@ function EventMeaningElements({ data }) {
   );
 }
 
-function FantasyNameGenerator({ fetchGeneratedNames, generatedNames }) {
+/* function FantasyNameGenerator({ fetchGeneratedNames, generatedNames }) {
   return (
     <div>
       <h2>Fantasy Name Generator</h2>
@@ -482,6 +483,6 @@ function FantasyNameGenerator({ fetchGeneratedNames, generatedNames }) {
       </ul>
     </div>
   );
-}
+} */
 
 export default App
