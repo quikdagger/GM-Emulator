@@ -5,7 +5,7 @@
 body {
   margin: 0;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  background-color: #f4eedb;
+  background-color: #e9e4d7;
   color: #3a3a3a;
 }
 
@@ -17,12 +17,30 @@ body {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers-1.png");
-  background-color: #f4eedb;
+  background-image: url("https://www.transparenttextures.com/patterns/graphy.png");
+  background-color: #e9e4d7;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   padding: 30px;
 }
+
+button {
+  background-color: transparent;
+  color: #3a3a3a;
+  border: 1px solid #3a3a3a;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
+}
+
 
 h2 {
   margin: 0.5rem;
@@ -51,22 +69,6 @@ textarea {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-button {
-  background-color: #8b4513;
-  color: #f4f4f4;
-  border: 1px solid #ccc;
-  padding: 6px 12px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-weight: bold;
-}
-
-button:hover {
-  background-color: #f0f0f0;
-  border-color: #999;
-}
 
 .eventMeaning-container {
   display: flex;
@@ -135,23 +137,21 @@ button:hover {
   margin-top: 20px;
 }
 
-.oracle-probabilities {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
 .oracle-probabilities button {
-  background-color: #8b4513;
-  border: none;
+  background-color: transparent;
+  border: 1px solid #3a3a3a;
   border-radius: 4px;
-  color: white;
+  color: #3a3a3a;
   cursor: pointer;
   font-size: 14px;
   padding: 5px 10px;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-weight: bold;
+}
+
+.oracle-probabilities button:hover {
+  background-color: #f0f0f0;
+  border-color: #999;
 }
 
 .oracle-probabilities button:hover {
