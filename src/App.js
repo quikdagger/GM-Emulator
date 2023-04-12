@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 import { MythicGMEmulatorData } from './MythicGMEmulatorData.js'
-// import MIDIPlayerComponent from './MIDIPlayer'
- // import MIDIPlayer from './MIDIPlayer'
+import MIDIPlayerComponent from './MIDIPlayer'
+import MIDIPlayer from './MIDIPlayer'
 import NPCEmulator from './NPCEmulator'
 
 function App() {
@@ -18,18 +18,17 @@ function App() {
     const savedChaosFactor = localStorage.getItem("chaosFactor");
     const savedThreads = localStorage.getItem("threads");
     const savedNPCs = localStorage.getItem("NPCs");
-  
-    if (savedChaosFactor) setChaosFactor(parseInt(savedChaosFactor, 10));
+
+    if (savedChaosFactor) setChaosFactor(JSON.parse(savedChaosFactor));
     if (savedThreads) setThreads(JSON.parse(savedThreads));
     if (savedNPCs) setNPCs(JSON.parse(savedNPCs));
   }, []);
-  
+
   useEffect(() => {
-    localStorage.setItem("chaosFactor", chaosFactor);
+    localStorage.setItem("chaosFactor", JSON.stringify(chaosFactor));
     localStorage.setItem("threads", JSON.stringify(threads));
     localStorage.setItem("NPCs", JSON.stringify(NPCs));
   }, [chaosFactor, threads, NPCs]);
-  
 
   const generateEventFocus = () => {
     const randomNumber = Math.floor(Math.random() * 100) +1
@@ -98,8 +97,10 @@ function App() {
   };
 
   return (
-    <div className='App'> 
-
+    <div className='App'>
+      <audio src="/creepy.mid" autoPlay loop />
+      <MIDIPlayerComponent />
+      <MIDIPlayer />
       <SceneSetup  sceneSetup={sceneSetup} setSceneSetup={setSceneSetup} />
       <ChaosFactor chaosFactor={chaosFactor} setChaosFactor={setChaosFactor} />
       <PlayerActions handleAction={handleAction} />
